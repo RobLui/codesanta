@@ -1,5 +1,2 @@
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^codepolice.local$ [NC,OR]
-RewriteCond %{HTTP_HOST} ^www.codepolice.local$
-RewriteCond %{REQUEST_URI} !_web/
-RewriteRule (.*) /_web/$1 [L]
+RewriteCond %{HTTPS} off

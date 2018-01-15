@@ -15,7 +15,7 @@ function callAnAPI($url,$iszipped)
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     // SETTING USER AGENT BECAUSE GITHUB API SECURITY
-    curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+    curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36');
     if($iszipped)
     {
         curl_setopt($ch, CURLOPT_ENCODING , "gzip");
@@ -25,7 +25,7 @@ function callAnAPI($url,$iszipped)
     return $responseJson;
 }
 //////////////////////////////////////////////////////////////////GITHUB CALLING BELOW///////////////////////////////////////////////////////////////
-$ACCESTOKEN_GIT="f2a74b99c9168fe1de0b3ea373ad203b04d98f17";
+$ACCESTOKEN_GIT="0f7d288c12497a5ca74ece739bd922ecbea273ab";
 $NUMBERGITHUBREPOS=0;
 if(isset($_POST["codetocheck"]))
 {
@@ -34,7 +34,7 @@ if(isset($_POST["codetocheck"]))
     if($theurltocheck!="")
     {
         //URL FOR GITHUB FORKS
-        $repourl= "https://api.github.com/repos/".$theurltocheck."/forks";
+        $repourl= "http://api.github.com/repos/".$theurltocheck."/forks";
         //GET FINAL JSON RESPONSE OF FORKS
         $forks = json_decode(callAnAPI($repourl,false));
 
@@ -50,7 +50,7 @@ if(isset($_POST["codetocheck"]))
         $RESPONSE["pulls"]=0;
     }
     //URL TO CALL GITHUB API
-    $urlgit = 'https://api.github.com/search/code?q='.urlencode($thecodetocheck).'&access_token='.$ACCESTOKEN_GIT;
+    $urlgit = 'http://api.github.com/search/code?q='.urlencode($thecodetocheck).'&access_token='.$ACCESTOKEN_GIT;
     //GET FINAL JSON RESPONSE OF GITHUB REPOS
     $responsegit = json_decode(callAnAPI($urlgit,false));
     //COUNT NUMBER OF GITHUBREPOS
