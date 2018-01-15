@@ -25,7 +25,7 @@ function callAnAPI($url,$iszipped)
     return $responseJson;
 }
 //////////////////////////////////////////////////////////////////GITHUB CALLING BELOW///////////////////////////////////////////////////////////////
-$ACCESTOKEN_GIT="0f7d288c12497a5ca74ece739bd922ecbea273ab";
+$ACCESTOKEN_GIT="f2a74b99c9168fe1de0b3ea373ad203b04d98f17";
 $NUMBERGITHUBREPOS=0;
 if(isset($_POST["codetocheck"]))
 {
